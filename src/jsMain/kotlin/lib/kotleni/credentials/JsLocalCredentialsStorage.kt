@@ -39,8 +39,4 @@ class JsLocalCredentialsStorage : CredentialsStorage {
     override fun setBoolean(key: String, value: Boolean) {
         localStorage[key] = value.toString()
     }
-
-    override fun clear(key: String) {
-        localStorage.clear()
-    }
 }

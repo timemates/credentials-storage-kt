@@ -40,11 +40,6 @@ interface CredentialsStorage {
      * Stores a boolean credential with the specified key and value.
      */
     fun setBoolean(key: String, value: Boolean)
-
-    /**
-     * Clears the stored credential associated with the specified key.
-     */
-    fun clear(key: String)
 }
 
 /**

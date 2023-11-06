@@ -47,8 +47,4 @@ class AndroidEncryptedPrefsCredentials(
     override fun setBoolean(key: String, value: Boolean) {
         prefs.edit().apply { putString(key, value.toString()) }.apply()
     }
-
-    override fun clear(key: String) {
-        prefs.edit().apply { clear() }.apply()
-    }
 }

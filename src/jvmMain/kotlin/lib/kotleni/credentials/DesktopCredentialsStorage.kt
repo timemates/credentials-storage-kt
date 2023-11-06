@@ -64,8 +64,4 @@ class DesktopCredentialsStorage : CredentialsStorage {
     override fun setBoolean(key: String, value: Boolean) {
         return setValue(key, value.toString())
     }
-
-    override fun clear(key: String) {
-        throw NotImplementedError()
-    }
 }
