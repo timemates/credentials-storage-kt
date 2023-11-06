@@ -3,7 +3,6 @@ plugins {
 }
 
 group = "com.timemates.credentials"
-version = "1.0-SNAPSHOT"
 
 kotlin {
     sourceSets {
