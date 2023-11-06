@@ -26,6 +26,6 @@ actual class CredentialsManagerImpl : CredentialsManager {
         if(credentialsStorage == null) throw CredentialsNotInitializedException()
 
         return credentialsStorage?.get(key)
-            ?.let { Credential(it.username, it.password.toString()) }
+            ?.let { Credential(it.username, it.password.concatToString()) }
     }
 }
