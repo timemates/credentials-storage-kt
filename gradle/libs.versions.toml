@@ -69,6 +69,9 @@ accompanist-systemUiController = { module = "com.google.accompanist:accompanist-
 kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 android-plugin = { module = "com.android.tools.build:gradle", version.ref = "android-gradle-plugin" }
 
+# Desktop
+microsoft-credential-storage = { module = "com.microsoft:credential-secure-storage", version.require = "1.0.0" }
+
 [plugins]
 # Build Conventions
 conventions-multiplatform = { id = "multiplatform-convention", version.require = "SNAPSHOT" }

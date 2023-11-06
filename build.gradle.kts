@@ -20,7 +20,7 @@ kotlin {
 
         val jvmMain by getting {
             dependencies {
-                implementation(projects.jvmcredentials)
+                implementation(libs.microsoft.credential.storage)
             }
         }
         val jvmTest by getting
