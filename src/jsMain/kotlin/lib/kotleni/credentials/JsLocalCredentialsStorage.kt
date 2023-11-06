@@ -1,14 +1,13 @@
 package lib.kotleni.credentials
 
 import kotlinx.browser.localStorage
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.encodeToJsonElement
 import org.w3c.dom.get
 import org.w3c.dom.set
 
-actual class CredentialsStorageImpl : CredentialsStorage {
-    override fun initialize() { }
-
+/**
+ * Javascript local storage implementation of credentials storage
+ */
+class JsLocalCredentialsStorage : CredentialsStorage {
     override fun getString(key: String): String? {
         return localStorage[key]
     }

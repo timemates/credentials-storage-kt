@@ -2,11 +2,6 @@ package lib.kotleni.credentials
 
 interface CredentialsStorage {
     /**
-     * Just initialize a credentials storage.
-     */
-    fun initialize()
-
-    /**
      * Retrieves a string credential associated with the specified key.
      */
     fun getString(key: String): String?
@@ -107,5 +102,3 @@ fun CredentialsStorage.getLongOrSet(key: String, defaultValue: () -> Long): Long
 fun CredentialsStorage.getBooleanOrSet(key: String, defaultValue: () -> Boolean): Boolean {
     return getBoolean(key) ?: defaultValue().also { setBoolean(key, it) }
 }
-
-expect class CredentialsStorageImpl : CredentialsStorage

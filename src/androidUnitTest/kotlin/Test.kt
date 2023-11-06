@@ -1,12 +1,26 @@
+import android.content.Context
+import junit.framework.TestCase.assertEquals
+import lib.kotleni.credentials.AndroidEncryptedPrefsCredentials
 import lib.kotleni.credentials.CredentialsStorage
-import lib.kotleni.credentials.JsLocalCredentialsStorage
-import kotlin.test.Test
-import kotlin.test.assertEquals
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
 
+@RunWith(RobolectricTestRunner::class)
 class Test {
+    var appContext: Context? = null
+
+    @Before
+    fun setUp() {
+        val app = RuntimeEnvironment.application
+        appContext = app.applicationContext
+    }
+
     @Test
     fun testCredentialsSetAndGet() {
-        val credentialsStorage: CredentialsStorage = JsLocalCredentialsStorage()
+        val credentialsStorage: CredentialsStorage = AndroidEncryptedPrefsCredentials(appContext!!)
 
         val string = "hi"
         val int = 1

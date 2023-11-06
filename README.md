@@ -6,7 +6,7 @@ Multi-platform Kotlin library for storing key-value credentials.
   - [x] macOS
   - [x] Linux
   - [x] Windows
-  - [ ] Android
+  - [x] Android
 - [x] Kotlin/JS
     - [x] Browser
 

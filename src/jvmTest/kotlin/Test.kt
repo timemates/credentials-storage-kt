@@ -1,20 +1,17 @@
 import lib.kotleni.credentials.CredentialsStorage
-import lib.kotleni.credentials.CredentialsStorageImpl
+import lib.kotleni.credentials.DesktopCredentialsStorage
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class Test {
-    private val credentialsStorage: CredentialsStorage = CredentialsStorageImpl()
-
     @Test
     fun testCredentialsSetAndGet() {
+        val credentialsStorage: CredentialsStorage = DesktopCredentialsStorage()
+
         val string = "hi"
         val int = 1
         val long = 1L
         val boolean = false
-
-        // Init
-        credentialsStorage.initialize()
 
         // Store
         credentialsStorage.setString("string", string)

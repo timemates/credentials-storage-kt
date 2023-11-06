@@ -4,15 +4,19 @@ import com.microsoft.credentialstorage.SecretStore
 import com.microsoft.credentialstorage.StorageProvider
 import com.microsoft.credentialstorage.model.StoredCredential
 
-actual class CredentialsStorageImpl : CredentialsStorage {
-    private var credentialsStorage: SecretStore<StoredCredential>? = null
+/**
+ * Windows, linux and macOS implementation of credentials manager.
+ */
+class DesktopCredentialsStorage : CredentialsStorage {
+    private var credentialsStorage: SecretStore<StoredCredential> = StorageProvider.getCredentialStorage(
+        true,
+        StorageProvider.SecureOption.REQUIRED
+    )
 
     /**
      * Get value or null from credentials storage by key.
      */
     private fun getValueOrNull(key: String): String? {
-        if(credentialsStorage == null) throw CredentialsNotInitializedException()
-
         val passwordArray = credentialsStorage?.get(key)?.password ?: return null
         return passwordArray.concatToString()
     }
@@ -21,21 +25,12 @@ actual class CredentialsStorageImpl : CredentialsStorage {
      * Set value by key in credentials manager.
      */
     private fun setValue(key: String, value: String) {
-        if(credentialsStorage == null) throw CredentialsNotInitializedException()
-
         // Remove prev value if exist
         if(credentialsStorage?.get(key) != null) {
             credentialsStorage?.delete(key)
         }
 
         credentialsStorage?.add(key, StoredCredential(key, value.toCharArray()))
-    }
-
-    override fun initialize() {
-        credentialsStorage = StorageProvider.getCredentialStorage(
-            true,
-            StorageProvider.SecureOption.REQUIRED
-        )
     }
 
     override fun getString(key: String): String? {
