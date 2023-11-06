@@ -10,6 +10,8 @@ android-gradle-plugin = "7.3.1"
 compose-compiler = "1.5.3"
 android-compose-version = "1.5.4"
 compose-multiplatform = "1.5.10"
+robolectric = "4.9"
+security-crypto = "1.0.0"
 
 [libraries]
 # kotlinx libraries
@@ -45,6 +47,8 @@ exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "e
 
 logback-classic = { module = "ch.qos.logback:logback-classic", version.require = "1.3.5" }
 
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+security-crypto = { module = "androidx.security:security-crypto", version.ref = "security-crypto" }
 simple-java-mail = { module = "org.simplejavamail:simple-java-mail", version.require = "8.3.1" }
 
 # JetPack Compose Libraries

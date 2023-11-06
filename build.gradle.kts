@@ -40,28 +40,26 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
+
         val jvmMain by getting {
             dependencies {
                 implementation(project(mapOf("path" to ":jvmcredentials")))
             }
         }
-        val jvmTest by getting {
-            dependencies {
-                //implementation(kotlin("test"))
-            }
-        }
+        val jvmTest by getting
+
         val jsMain by getting
         val jsTest by getting
+
         val androidMain by getting {
             dependencies {
-                implementation("androidx.security:security-crypto:1.0.0")
+                implementation(libs.security.crypto)
             }
         }
         val androidUnitTest by getting {
             dependencies {
                 implementation(libs.kotlin.test.junit)
-                implementation("io.mockk:mockk:+")
-                implementation("org.robolectric:robolectric:4.9")
+                implementation(libs.robolectric)
             }
         }
     }
@@ -90,10 +88,4 @@ android {
             isIncludeAndroidResources = true
         }
     }
-
-//    testOptions {
-//        unitTests {
-//            includeAndroidResources = true
-//        }
-//    }
 }
