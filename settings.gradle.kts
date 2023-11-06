@@ -75,3 +75,4 @@ dependencyResolutionManagement {
 rootProject.name = "credentials-manager-lib"
 
 includeBuild("build-conventions")
+include("jvmcredentials")

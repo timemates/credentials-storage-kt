@@ -39,7 +39,7 @@ kotlin {
         }
         val jvmMain by getting {
             dependencies {
-                implementation("com.microsoft:credential-secure-storage:1.0.0")
+                implementation(project(mapOf("path" to ":jvmcredentials")))
             }
         }
         val jvmTest by getting {
