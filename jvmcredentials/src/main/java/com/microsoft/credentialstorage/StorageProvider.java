@@ -111,7 +111,7 @@ public final class StorageProvider {
         logger.info("Getting a {} token store that {} be secure", persist ? "persistent" : "non-persistent",
                 secureOption == SecureOption.REQUIRED ? "required" : "preferred");
 
-        final NonPersistentStoreGenerator<StoredToken> inMemoryStoreGenerator = new NonPersistentStoreGenerator<>() {
+        final NonPersistentStoreGenerator<StoredToken> inMemoryStoreGenerator = new NonPersistentStoreGenerator() {
             @Override
             public SecretStore<StoredToken> getInsecureNonPersistentStore() {
                 return new InsecureInMemoryStore<>();
@@ -140,7 +140,7 @@ public final class StorageProvider {
         logger.info("Getting a {} tokenPair store that {} be secure", persist ? "persistent" : "non-persistent",
                 secureOption == SecureOption.REQUIRED ? "required" : "preferred");
 
-        final NonPersistentStoreGenerator<StoredTokenPair> inMemoryStoreGenerator = new NonPersistentStoreGenerator<>() {
+        final NonPersistentStoreGenerator<StoredTokenPair> inMemoryStoreGenerator = new NonPersistentStoreGenerator() {
             @Override
             public SecretStore<StoredTokenPair> getInsecureNonPersistentStore() {
                 return new InsecureInMemoryStore<>();
@@ -169,7 +169,7 @@ public final class StorageProvider {
         logger.info("Getting a {} credential store that {} be secure", persist ? "persistent" : "non-persistent",
                 secureOption == SecureOption.REQUIRED ? "required" : "preferred");
 
-        final NonPersistentStoreGenerator<StoredCredential> inMemoryStoreGenerator = new NonPersistentStoreGenerator<>() {
+        final NonPersistentStoreGenerator<StoredCredential> inMemoryStoreGenerator = new NonPersistentStoreGenerator() {
             @Override
             public SecretStore<StoredCredential> getInsecureNonPersistentStore() {
                 return new InsecureInMemoryStore<>();

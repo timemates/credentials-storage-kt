@@ -397,7 +397,7 @@ public abstract class LibSecretBackedSecureStore<E extends StoredSecret> impleme
 
     protected static boolean checkResult(final PointerByReference error, final String message) {
         if (error.getValue() != null) {
-            GError gError = Structure.newInstance(GError.class, error.getValue());
+            GError gError = (GError) Structure.newInstance(GError.class, error.getValue());
             gError.read();
 
             logger.error(message + ": domain: {}, code: {}, description: {}", gError.domain, gError.code, gError.message);
