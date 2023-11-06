@@ -15,4 +15,5 @@ kotlin {
 dependencies {
     api(libs.kotlin.plugin)
     api(libs.android.plugin)
+    api(libs.vanniktech.maven.publish)
 }
