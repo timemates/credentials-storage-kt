@@ -68,6 +68,7 @@ accompanist-systemUiController = { module = "com.google.accompanist:accompanist-
 # Plugin classpaths
 kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 android-plugin = { module = "com.android.tools.build:gradle", version.ref = "android-gradle-plugin" }
+vanniktech-maven-publish = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.require = "0.25.3" }
 
 # Desktop
 microsoft-credential-storage = { module = "com.microsoft:credential-secure-storage", version.require = "1.0.0" }
