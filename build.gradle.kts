@@ -10,7 +10,7 @@ version = "1.0-SNAPSHOT"
 kotlin {
     androidTarget()
 
-    jvm {
+    jvm("desktop") {
         jvmToolchain(8)
         //withJava()
         testRuns.named("test") {
@@ -41,12 +41,12 @@ kotlin {
             }
         }
 
-        val jvmMain by getting {
+        val desktopMain by getting {
             dependencies {
                 implementation(project(mapOf("path" to ":jvmcredentials")))
             }
         }
-        val jvmTest by getting
+        val desktopTest by getting
 
         val jsMain by getting
         val jsTest by getting
