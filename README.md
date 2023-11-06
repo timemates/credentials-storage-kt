@@ -1,5 +1,6 @@
 ## CredentialsStorageLib
 Multiplatform Kotlin library for storing key-value credentials.
+<br>See [Wiki](https://github.com/kotleni/credentials-storage-kt/wiki/Prepare) for help.
 
 ### Platforms
 - [x] Kotlin/JVM (Java 11)
