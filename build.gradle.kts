@@ -3,7 +3,6 @@ plugins {
 }
 
 group = "com.timemates.credentials"
-version = "1.0-SNAPSHOT"
 
 kotlin {
     sourceSets {
@@ -58,5 +57,18 @@ android {
             isReturnDefaultValues = true
             isIncludeAndroidResources = true
         }
+    }
+}
+
+mavenPublishing {
+    coordinates(
+        groupId = "io.timemates.credentials",
+        artifactId = "credentials-manager",
+        version = System.getenv("LIB_VERSION")  ?: return@mavenPublishing,
+    )
+
+    pom {
+        name.set("CredentialsManager")
+        description.set("Multiplatform Kotlin library for storing key-value credentials.")
     }
 }
