@@ -1,4 +1,4 @@
-package lib.kotleni.credentials
+package io.timemates.credentials
 
 import kotlinx.browser.localStorage
 import org.w3c.dom.get
@@ -7,7 +7,7 @@ import org.w3c.dom.set
 /**
  * Javascript local storage implementation of credentials storage
  */
-class JsLocalCredentialsStorage : CredentialsStorage {
+public class JsLocalCredentialsStorage : CredentialsStorage {
     override fun getString(key: String): String? {
         return localStorage[key]
     }

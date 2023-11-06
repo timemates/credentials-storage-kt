@@ -2,6 +2,7 @@ package lib.kotleni.credentials
 
 import android.content.Context
 import android.content.SharedPreferences
+import io.timemates.credentials.CredentialsStorage
 
 /**
  * Android encrypted shared preferences implementation of credentials manager
@@ -11,7 +12,7 @@ import android.content.SharedPreferences
  * @suppress Warning! In robolectric test encrypting is disabled
  * @see createSharedPreferences
  */
-class AndroidEncryptedPrefsCredentials(
+public class AndroidEncryptedPrefsCredentials(
     context: Context
 ) : CredentialsStorage {
     private val prefs: SharedPreferences = createSharedPreferences(context)

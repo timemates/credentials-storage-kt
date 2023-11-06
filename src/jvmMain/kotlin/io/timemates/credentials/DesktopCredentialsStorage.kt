@@ -1,4 +1,4 @@
-package lib.kotleni.credentials
+package io.timemates.credentials
 
 import com.microsoft.credentialstorage.SecretStore
 import com.microsoft.credentialstorage.StorageProvider
@@ -7,7 +7,7 @@ import com.microsoft.credentialstorage.model.StoredCredential
 /**
  * Windows, linux and macOS implementation of credentials manager.
  */
-class DesktopCredentialsStorage : CredentialsStorage {
+public class DesktopCredentialsStorage : CredentialsStorage {
     private var credentialsStorage: SecretStore<StoredCredential> = StorageProvider.getCredentialStorage(
         true,
         StorageProvider.SecureOption.REQUIRED

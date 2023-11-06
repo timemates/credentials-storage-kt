@@ -1,34 +1,11 @@
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.kotlinx.serialization)
-    alias(libs.plugins.android.library)
+    id(libs.plugins.conventions.multiplatform.library.get().pluginId)
 }
 
-group = "lib.kotleni"
+group = "com.timemates.credentials"
 version = "1.0-SNAPSHOT"
 
 kotlin {
-    androidTarget()
-
-    jvm("desktop") {
-        jvmToolchain(8)
-        //withJava()
-        testRuns.named("test") {
-            executionTask.configure {
-                useJUnitPlatform()
-            }
-        }
-    }
-    js {
-        browser {
-            commonWebpackConfig {
-                cssSupport {
-                    enabled.set(true)
-                }
-            }
-        }
-    }
-
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -37,16 +14,16 @@ kotlin {
         }
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test"))
+                implementation(libs.kotlin.test)
             }
         }
 
-        val desktopMain by getting {
+        val jvmMain by getting {
             dependencies {
-                implementation(project(mapOf("path" to ":jvmcredentials")))
+                implementation(projects.jvmcredentials)
             }
         }
-        val desktopTest by getting
+        val jvmTest by getting
 
         val jsMain by getting
         val jsTest by getting
@@ -66,20 +43,14 @@ kotlin {
 }
 
 android {
-    val _minSdk = 23
-    val _compileSdk = 32
-
-    compileSdk = _compileSdk
+    compileSdk = libs.versions.android.compile.sdk.get().toInt()
 
     defaultConfig {
-        minSdk = _minSdk
+        minSdk = libs.versions.android.min.sdk.get().toInt()
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlin {
-        jvmToolchain(11)
     }
 
     testOptions {

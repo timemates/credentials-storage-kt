@@ -15,7 +15,7 @@ private const val ENCRYPTED_PREFS_FILE = "credentials_storage.txt"
  *
  * @suppress Warning! In robolectric test encrypting is disabled
  */
-fun createSharedPreferences(context: Context): SharedPreferences {
+internal fun createSharedPreferences(context: Context): SharedPreferences {
     return if(Build.FINGERPRINT.lowercase() == "robolectric") // For tests
         context.getSharedPreferences("test", Context.MODE_PRIVATE)
     else EncryptedSharedPreferences.create( // For app

@@ -1,5 +1,5 @@
-import lib.kotleni.credentials.CredentialsStorage
-import lib.kotleni.credentials.DesktopCredentialsStorage
+import io.timemates.credentials.CredentialsStorage
+import io.timemates.credentials.DesktopCredentialsStorage
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

@@ -14,4 +14,5 @@ kotlin {
 
 dependencies {
     api(libs.kotlin.plugin)
+    api(libs.android.plugin)
 }

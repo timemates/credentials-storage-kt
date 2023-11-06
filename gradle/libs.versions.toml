@@ -12,6 +12,8 @@ android-compose-version = "1.5.4"
 compose-multiplatform = "1.5.10"
 robolectric = "4.9"
 security-crypto = "1.0.0"
+android-min-sdk = "23"
+android-compile-sdk = "32"
 
 [libraries]
 # kotlinx libraries
@@ -65,6 +67,7 @@ accompanist-systemUiController = { module = "com.google.accompanist:accompanist-
 
 # Plugin classpaths
 kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+android-plugin = { module = "com.android.tools.build:gradle", version.ref = "android-gradle-plugin" }
 
 [plugins]
 # Build Conventions

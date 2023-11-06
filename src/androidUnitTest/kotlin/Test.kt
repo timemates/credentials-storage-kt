@@ -1,7 +1,7 @@
 import android.content.Context
+import io.timemates.credentials.CredentialsStorage
 import junit.framework.TestCase.assertEquals
 import lib.kotleni.credentials.AndroidEncryptedPrefsCredentials
-import lib.kotleni.credentials.CredentialsStorage
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
