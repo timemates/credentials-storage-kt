@@ -1,20 +1,31 @@
-import lib.kotleni.credentials.Credential
-import lib.kotleni.credentials.CredentialsManager
-import lib.kotleni.credentials.CredentialsManagerImpl
+import lib.kotleni.credentials.CredentialsStorage
+import lib.kotleni.credentials.CredentialsStorageImpl
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class Test {
-    private val credentialsManager: CredentialsManager = CredentialsManagerImpl()
+    private val credentialsStorage: CredentialsStorage = CredentialsStorageImpl()
 
     @Test
-    fun testCredentialSetAndGet() {
-        credentialsManager.initialize()
+    fun testCredentialsSetAndGet() {
+        val string = "hi"
+        val int = 1
+        val long = 1L
+        val boolean = false
 
-        val credential = Credential("login@mydomain.com", "secretpassword")
-        credentialsManager.add("user", credential)
+        // Init
+        credentialsStorage.initialize()
 
-        val credential2 = credentialsManager.get("user")
-        assertEquals(credential2?.password, credential.password)
+        // Store
+        credentialsStorage.setString("string", string)
+        credentialsStorage.setInt("int", int)
+        credentialsStorage.setLong("long", long)
+        credentialsStorage.setBoolean("boolean", boolean)
+
+        // Get and check
+        assertEquals(string, credentialsStorage.getString("string"))
+        assertEquals(int, credentialsStorage.getInt("int"))
+        assertEquals(long, credentialsStorage.getLong("long"))
+        assertEquals(boolean, credentialsStorage.getBoolean("boolean"))
     }
 }
