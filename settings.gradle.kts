@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 rootProject.name = "credentials-manager-lib"
 
 includeBuild("build-conventions")
-include(":utils")
+include(":in-memory")

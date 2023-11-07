@@ -1,6 +1,6 @@
 import io.timemates.credentials.CredentialsStorage
-import io.timemates.credentials.utils.InMemoryCredentialsStorage
-import org.junit.Test
+import io.timemates.credentials.inmemory.InMemoryCredentialsStorage
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class UtilsTest {
