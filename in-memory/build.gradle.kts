@@ -26,7 +26,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.timemates.credentials",
         artifactId = "credentials-manager-inmemory",
-        version = System.getenv("LIB_VERSION")  ?: return@mavenPublishing,
+        version = System.getenv("LIB_VERSION") ?: return@mavenPublishing,
     )
 
     pom {

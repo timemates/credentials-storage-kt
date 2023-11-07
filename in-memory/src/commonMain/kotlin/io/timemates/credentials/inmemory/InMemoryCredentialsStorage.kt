@@ -1,8 +1,8 @@
-package io.timemates.credentials.utils
+package io.timemates.credentials.inmemory
 
 import io.timemates.credentials.CredentialsStorage
 
-class InMemoryCredentialsStorage : CredentialsStorage {
+public class InMemoryCredentialsStorage : CredentialsStorage {
     private val hashMap: HashMap<String, Any> = HashMap()
 
     override fun getString(key: String): String? {
