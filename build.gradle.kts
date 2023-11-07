@@ -1,6 +1,5 @@
 plugins {
     id(libs.plugins.conventions.multiplatform.library.get().pluginId)
-    alias(libs.plugins.kotlin.jvm) apply false
 }
 
 group = "com.timemates.credentials"
