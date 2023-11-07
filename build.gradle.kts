@@ -5,6 +5,35 @@ plugins {
 group = "com.timemates.credentials"
 
 kotlin {
+    val hostOs = System.getProperty("os.name")
+    val isArm64 = System.getProperty("os.arch") == "aarch64"
+    val isMingwX64 = hostOs.startsWith("Windows")
+    val nativeTarget = when {
+        hostOs == "Mac OS X" && isArm64 -> macosArm64("native")
+        hostOs == "Mac OS X" && !isArm64 -> macosX64("native")
+        hostOs == "Linux" && isArm64 -> linuxArm64("native")
+        hostOs == "Linux" && !isArm64 -> linuxX64("native")
+        isMingwX64 -> mingwX64("native")
+        else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
+    }
+
+    nativeTarget.apply {
+        binaries {
+            compilations["main"].cinterops {
+                val lib by creating {
+                    packageName = "io.timemates.credentials.native"
+                    includeDirs("$projectDir/src/nativeMain/cpp/")
+                    defFile = file("$projectDir/src/nativeMain/lib.def")
+
+                    //compilerOpts("-F${projectDir}")
+                }
+            }
+            executable {
+                entryPoint = "main"
+            }
+        }
+    }
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -37,6 +66,11 @@ kotlin {
                 implementation(libs.kotlin.test.junit)
                 implementation(libs.robolectric)
             }
+        }
+
+        val nativeMain by getting
+        val nativeTest by getting {
+            dependsOn(nativeMain)
         }
     }
 }
