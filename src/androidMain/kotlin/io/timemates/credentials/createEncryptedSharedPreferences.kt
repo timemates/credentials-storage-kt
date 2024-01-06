@@ -6,7 +6,7 @@ import android.os.Build
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKeys
 
-private const val ENCRYPTED_PREFS_FILE = "credentials_storage.txt"
+internal const val DEFAULT_ENCRYPTED_PREFS_FILE = "credentials_storage.txt"
 
 /**
  * Create an encrypted SharedPreferences.
@@ -15,11 +15,11 @@ private const val ENCRYPTED_PREFS_FILE = "credentials_storage.txt"
  *
  * @suppress Warning! In robolectric test encrypting is disabled
  */
-internal fun createSharedPreferences(context: Context): SharedPreferences {
+internal fun createSharedPreferences(context: Context, fileName: String = DEFAULT_ENCRYPTED_PREFS_FILE): SharedPreferences {
     return if(Build.FINGERPRINT.lowercase() == "robolectric") // For tests
         context.getSharedPreferences("test", Context.MODE_PRIVATE)
     else EncryptedSharedPreferences.create( // For app
-        ENCRYPTED_PREFS_FILE,
+        fileName,
         MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC),
         context,
         EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,

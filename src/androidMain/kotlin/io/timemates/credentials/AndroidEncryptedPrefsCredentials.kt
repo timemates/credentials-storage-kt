@@ -2,7 +2,6 @@ package lib.kotleni.credentials
 
 import android.content.Context
 import android.content.SharedPreferences
-import io.timemates.credentials.CredentialsStorage
 
 /**
  * Android encrypted shared preferences implementation of credentials manager
@@ -13,9 +12,10 @@ import io.timemates.credentials.CredentialsStorage
  * @see createSharedPreferences
  */
 public class AndroidEncryptedPrefsCredentials(
-    context: Context
+    context: Context,
+    fileName: String = DEFAULT_ENCRYPTED_PREFS_FILE,
 ) : CredentialsStorage {
-    private val prefs: SharedPreferences = createSharedPreferences(context)
+    private val prefs: SharedPreferences = createSharedPreferences(context, fileName)
 
     override fun getString(key: String): String? {
         return prefs.getString(key, null)
