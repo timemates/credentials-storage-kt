@@ -2,37 +2,35 @@ plugins {
     id(libs.plugins.conventions.multiplatform.library.get().pluginId)
 }
 
-group = "com.timemates.credentials"
+group = "io.timemates.credentials"
 
 kotlin {
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 implementation(libs.kotlinx.serialization)
             }
         }
-        val commonTest by getting {
+
+        commonTest {
             dependencies {
                 implementation(libs.kotlin.test)
             }
         }
 
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
                 implementation(libs.microsoft.credential.storage)
             }
         }
-        val jvmTest by getting
 
-        val jsMain by getting
-        val jsTest by getting
-
-        val androidMain by getting {
+        androidMain {
             dependencies {
                 implementation(libs.security.crypto)
             }
         }
-        val androidUnitTest by getting {
+
+        androidUnitTest {
             dependencies {
                 implementation(libs.kotlin.test.junit)
                 implementation(libs.robolectric)
@@ -43,6 +41,7 @@ kotlin {
 
 android {
     compileSdk = libs.versions.android.compile.sdk.get().toInt()
+    namespace = "io.timemates.credentials"
 
     defaultConfig {
         minSdk = libs.versions.android.min.sdk.get().toInt()
@@ -64,7 +63,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.timemates.credentials",
         artifactId = "credentials-manager",
-        version = System.getenv("LIB_VERSION")  ?: return@mavenPublishing,
+        version = System.getenv("LIB_VERSION") ?: return@mavenPublishing,
     )
 
     pom {
