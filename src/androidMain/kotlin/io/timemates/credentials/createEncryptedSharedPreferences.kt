@@ -1,4 +1,4 @@
-package lib.kotleni.credentials
+package io.timemates.credentials
 
 import android.content.Context
 import android.content.SharedPreferences
