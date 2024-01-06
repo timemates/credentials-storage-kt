@@ -1,12 +1,12 @@
 [versions]
 junit = "1.1.5"
-kotlin = "1.9.20"
+kotlin = "2.0.0-Beta2"
 kotlinx-coroutines = "1.7.3"
 kotlinx-serialization = "1.6.0"
 ktor = "2.3.5"
 jupiter = "5.4.0"
 exposed = "0.41.1"
-android-gradle-plugin = "7.3.1"
+android-gradle-plugin = "7.4.2"
 compose-compiler = "1.5.3"
 android-compose-version = "1.5.4"
 compose-multiplatform = "1.5.10"
@@ -68,7 +68,7 @@ accompanist-systemUiController = { module = "com.google.accompanist:accompanist-
 # Plugin classpaths
 kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 android-plugin = { module = "com.android.tools.build:gradle", version.ref = "android-gradle-plugin" }
-vanniktech-maven-publish = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.require = "0.25.3" }
+vanniktech-maven-publish = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.require = "0.26.0" }
 
 # Desktop
 microsoft-credential-storage = { module = "com.microsoft:credential-secure-storage", version.require = "1.0.0" }
