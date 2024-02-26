@@ -2,7 +2,7 @@ plugins {
     id(libs.plugins.conventions.multiplatform.library.get().pluginId)
 }
 
-group = "io.timemates.credentials"
+group = "org.timemates.credentials"
 
 kotlin {
     sourceSets {
@@ -41,7 +41,7 @@ kotlin {
 
 android {
     compileSdk = libs.versions.android.compile.sdk.get().toInt()
-    namespace = "io.timemates.credentials"
+    namespace = "org.timemates.credentials"
 
     defaultConfig {
         minSdk = libs.versions.android.min.sdk.get().toInt()
@@ -61,7 +61,7 @@ android {
 
 mavenPublishing {
     coordinates(
-        groupId = "io.timemates.credentials",
+        groupId = "org.timemates.credentials",
         artifactId = "credentials-manager",
         version = System.getenv("LIB_VERSION") ?: return@mavenPublishing,
     )

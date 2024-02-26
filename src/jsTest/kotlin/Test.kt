@@ -1,5 +1,5 @@
-import io.timemates.credentials.CredentialsStorage
-import io.timemates.credentials.JsLocalCredentialsStorage
+import org.timemates.credentials.CredentialsStorage
+import org.timemates.credentials.JsLocalCredentialsStorage
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

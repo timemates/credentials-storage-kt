@@ -1,4 +1,4 @@
-package io.timemates.credentials
+package org.timemates.credentials
 
 import android.content.Context
 import android.content.SharedPreferences

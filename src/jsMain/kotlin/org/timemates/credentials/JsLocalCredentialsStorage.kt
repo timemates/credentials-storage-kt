@@ -1,4 +1,4 @@
-package io.timemates.credentials
+package org.timemates.credentials
 
 import kotlinx.browser.localStorage
 import org.w3c.dom.get

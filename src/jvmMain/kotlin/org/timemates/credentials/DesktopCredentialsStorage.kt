@@ -1,4 +1,4 @@
-package io.timemates.credentials
+package org.timemates.credentials
 
 import com.microsoft.credentialstorage.SecretStore
 import com.microsoft.credentialstorage.StorageProvider

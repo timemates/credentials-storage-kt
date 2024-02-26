@@ -33,5 +33,5 @@ kotlin {
 android {
     compileSdk = 34
 
-    namespace = "io.timemates.credentials"
+    namespace = "org.timemates.credentials"
 }
