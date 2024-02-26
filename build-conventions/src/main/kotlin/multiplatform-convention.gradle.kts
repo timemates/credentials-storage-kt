@@ -6,8 +6,6 @@ plugins {
 }
 
 kotlin {
-    androidTarget()
-
     jvm {
         testRuns.named("test") {
             executionTask.configure {
@@ -15,6 +13,9 @@ kotlin {
             }
         }
     }
+
+    androidTarget()
+
     js {
         browser {
             commonWebpackConfig {
@@ -27,4 +28,10 @@ kotlin {
     jvmToolchain(11)
 
     explicitApi = ExplicitApiMode.Strict
+}
+
+android {
+    compileSdk = 34
+
+    namespace = "io.timemates.credentials"
 }
